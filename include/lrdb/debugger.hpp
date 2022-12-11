@@ -11,9 +11,17 @@
 
 #include "picojson.h"
 extern "C" {
+#ifdef MINILUA
+#include "minilua.h"
+#elif LUAU
+#include <lua.h>
+#include <lualib.h>
+#include <luaconf.h>
+#else
 #include <lauxlib.h>
 #include <lua.h>
 #include <lualib.h>
+#endif
 }
 
 namespace lrdb {
